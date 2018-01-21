@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Queue Test Page</title>
+    <script src="../qjs.js"></script>
+</head>
+<body>
+
+<div id="content">
+
+</div>
+
+</body>
+
+<script>
+    qjs.enqueue('Hello');
+    qjs.initNamedQueue('FirstQueue');
+
+    qjs['FirstQueue'].enqueue('Bye');
+
+    var elem = document.getElementById('content');
+    elem.innerHTML = qjs.dequeue();
+    elem.innerHTML = qjs['FirstQueue'].dequeue();
+
+</script>
+
+</html>

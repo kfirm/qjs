@@ -83,8 +83,13 @@
             lock = false;
         };
 
-        this.size = function () {
-            return queue.length;
+        this.size = function (namedQueue) {
+
+            if (namedQueue){
+                return this[namedQueue].size();
+            } else {
+                return queue.length;
+            }
         };
 
         this.last = function () {
@@ -95,8 +100,17 @@
             }
         };
 
+        this.initNamedQueue = function (namedQueue) {
+            this[namedQueue] = new Queue();
+        };
+
+        // Queue Events:
         this.onQueue = function (callback) {
             events.onQueue.push(callback);
+        };
+
+        this.onDequeue = function (callback) {
+            events.onDequeue.push(callback);
         }
 
     }
