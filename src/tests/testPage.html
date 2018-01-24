@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Queue Test Page</title>
-    <script src="../qjs.js"></script>
+    <script src="../qulee.js"></script>
 </head>
 <body>
 
@@ -14,14 +14,14 @@
 </body>
 
 <script>
-    qjs.enqueue('Hello');
-    qjs.initNamedQueue('FirstQueue');
+    qulee.enqueue('Hello');
+    qulee.createNamedQueue('FirstQueue');
 
-    qjs['FirstQueue'].enqueue('Bye');
+    qulee['FirstQueue'].enqueue('Bye');
 
     var elem = document.getElementById('content');
-    elem.innerHTML = qjs.dequeue();
-    elem.innerHTML = qjs['FirstQueue'].dequeue();
+    elem.innerHTML = qulee.dequeue();
+    elem.innerHTML = qulee['FirstQueue'].dequeue();
 
 </script>
 

@@ -100,8 +100,12 @@
             }
         };
 
-        this.initNamedQueue = function (namedQueue) {
-            this[namedQueue] = new Queue();
+        this.createNamedQueue = function (namedQueue) {
+            return (this[namedQueue] = new Queue());
+        };
+
+        this.setAllowDuplicate = function (isAllowed) {
+            allowDuplicates = !!isAllowed;
         };
 
         // Queue Events:
@@ -111,10 +115,18 @@
 
         this.onDequeue = function (callback) {
             events.onDequeue.push(callback);
+        };
+
+        this.onLock = function (callback) {
+            events.onDuplicate.push(callback);
+        };
+
+        this.onLock = function (callback) {
+            events.onDuplicate.push(callback);
         }
 
     }
 
-    global.qjs = new Queue();
+    global.qulee = new Queue();
 
 })(window || global);
