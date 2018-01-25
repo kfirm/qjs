@@ -148,4 +148,6 @@
         global.qulee = new Queue();
     }
 
-})(window || global);
+})(function () {
+    return window ? window : false;
+} || global);
