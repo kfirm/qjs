@@ -108,6 +108,21 @@
             allowDuplicates = !!isAllowed;
         };
 
+        this.executeOnQueue = function (callback, doDequeue){
+            if (!!doDequeue){
+
+                var obj = this.dequeue();
+
+                if (obj){
+                    callback(obj);
+                }
+            } else {
+                queue.forEach(function (t) {
+                    callback(t);
+                })
+            }
+        };
+
         // Queue Events:
         this.onQueue = function (callback) {
             events.onQueue.push(callback);
@@ -127,6 +142,10 @@
 
     }
 
-    global.qulee = new Queue();
+    if ( typeof module === "object" && typeof module.exports === "object" ){
+        module.exports = new Queue();
+    } else {
+        global.qulee = new Queue();
+    }
 
 })(window || global);

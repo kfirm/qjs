@@ -22,7 +22,9 @@ I first found it useful to implement a situation where I wanted http calls (prom
 **qulee.createNamedQueue(name)**  - creates a new queue by name - for example you can
                               create a new queue named 'myQueue' and call it by 
                               qulee['myQueue'];  
-**qulee.setAllowDuplicate(isAllowed)** - set if to allowed to queue the same object more than once. default is false                                
+**qulee.setAllowDuplicate(isAllowed)** - set if to allowed to queue the same object more than once. default is false
+**qulee.executeOnQueue(callback,doDequeue)** - execute the call back on each of the object in the queue (callback(obj)). If **doDequeue**  
+is set to true, each object will be removed from queue (default is false)                                  
 
 
 
