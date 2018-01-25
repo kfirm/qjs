@@ -2,6 +2,20 @@
 
 JavaScript library implementation of a queue with extra power  
 
+# Installation 
+
+Simply reference qulee.js or qulee.min.js on your html page
+
+```
+<script src="qulee.min.js"></script>
+```
+
+Using it on node.js:
+
+```
+npm install qulee --save
+```
+
 # Usage
 
 Using qulee is very simple. Just add the script tag with the relevant reference for qulee.js or qulee.min.js file.  

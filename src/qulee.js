@@ -108,6 +108,11 @@
             allowDuplicates = !!isAllowed;
         };
 
+        /***
+         * Executes the callback and sending the queued objects as arguments
+         * @param callback - function to execute
+         * @param doDequeue - remove the object from queue when executing the callback
+         */
         this.executeOnQueue = function (callback, doDequeue){
             if (!!doDequeue){
 
