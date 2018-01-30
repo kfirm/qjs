@@ -42,7 +42,7 @@ I first found it useful to implement a situation where I wanted http calls (prom
 
 
 
-# Event
+# Events
 
 **qulee.onQueue(callback)** - Add a call back to be executed on queue event    
 **qulee.onDequeue(callback)** - Add a call back to be executed on dequeue event    

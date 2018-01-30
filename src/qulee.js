@@ -20,7 +20,7 @@
             onLock: []
         };
 
-        function fireEvent(eventArray,param) {
+        function fireEvent(eventArray, param) {
             eventArray.forEach(function (callback) {
                 callback(param);
             })
@@ -29,19 +29,19 @@
 
         this.enqueue = function (item) {
 
-            if (lock){
+            if (lock) {
 
-                fireEvent(events.onLock,item);
+                fireEvent(events.onLock, item);
 
             } else if (!allowDuplicates && queue.indexOf(item) > -1) {
 
-                fireEvent(events.onDuplicate,item);
+                fireEvent(events.onDuplicate, item);
 
             } else {
 
                 queue.push(item);
 
-                fireEvent(events.onQueue,item);
+                fireEvent(events.onQueue, item);
             }
 
             return this;
@@ -71,7 +71,7 @@
         this.archive = function () {
             if (current) {
                 archived.push(current);
-                fireEvent(events.onArchive,current);
+                fireEvent(events.onArchive, current);
             }
         };
 
@@ -85,7 +85,7 @@
 
         this.size = function (namedQueue) {
 
-            if (namedQueue){
+            if (namedQueue) {
                 return this[namedQueue].size();
             } else {
                 return queue.length;
@@ -113,12 +113,12 @@
          * @param callback - function to execute
          * @param doDequeue - remove the object from queue when executing the callback
          */
-        this.executeOnQueue = function (callback, doDequeue){
-            if (!!doDequeue){
+        this.executeOnQueue = function (callback, doDequeue) {
+            if (!!doDequeue) {
 
                 var obj = this.dequeue();
 
-                if (obj){
+                if (obj) {
                     callback(obj);
                 }
             } else {
@@ -147,12 +147,10 @@
 
     }
 
-    if ( typeof module === "object" && typeof module.exports === "object" ){
+    if (typeof module === "object" && typeof module.exports === "object") {
         module.exports = new Queue();
     } else {
         global.qulee = new Queue();
     }
 
-})(function () {
-    return window ? window : false;
-} || global);
+})(typeof window !== "undefined" ? window : global);
