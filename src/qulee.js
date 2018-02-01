@@ -137,12 +137,12 @@
             events.onDequeue.push(callback);
         };
 
-        this.onLock = function (callback) {
+        this.onDuplicate = function (callback) {
             events.onDuplicate.push(callback);
         };
 
         this.onLock = function (callback) {
-            events.onDuplicate.push(callback);
+            events.onLock.push(callback);
         }
 
     }
