@@ -19,6 +19,7 @@ npm install qulee --save
 # Usage
 
 Using qulee is very simple. Just add the script tag with the relevant reference for qulee.js or qulee.min.js file.  
+Or if on Node just require the module as shown in the [examples](#Examples)  
 
 I first found it useful to implement a situation where I wanted http calls (promises) to get executed in a synchronized fashion.  
 
@@ -47,4 +48,43 @@ I first found it useful to implement a situation where I wanted http calls (prom
 **qulee.onQueue(callback)** - Add a call back to be executed on queue event    
 **qulee.onDequeue(callback)** - Add a call back to be executed on dequeue event    
 **qulee.onDuplicate(callback)** - Add a call back to be executed on queueing a duplicated event    
-**qulee.onLock(callback)** - Add a call back to be executed when trying to queue an object when the queue is locked    
+**qulee.onLock(callback)** - Add a call back to be executed when trying to queue an object when the queue is locked
+
+# Examples
+
+Simple example:
+```
+var qulee = require('qulee');
+
+qulee.enqueue('Hello ');
+qulee.enqueue('World ');
+qulee.enqueue('!');
+
+while (qulee.dequeue()){
+    console.log(qulee.current());
+}
+// will output:
+// Hello
+// World
+// !
+```
+Execute callback on each item in queue:
+```
+var qulee = require('qulee');
+
+qulee.enqueue({ value: 1 });
+qulee.enqueue({ value: 2 });
+qulee.enqueue({ value: 3 });
+
+qulee.executeOnQueue(function(item){
+    item.value *= 2; // multiply each value by 2
+});
+
+while (qulee.dequeue()){
+    console.log(qulee.current().value);
+}
+
+// output: 2 4 6
+
+
+```
