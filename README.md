@@ -1,20 +1,6 @@
 # qulee
 
-JavaScript library implementation of a queue with extra power  
-
-# Installation 
-
-Simply reference qulee.js or qulee.min.js on your html page
-
-```
-<script src="qulee.min.js"></script>
-```
-
-Using it on node.js:
-
-```
-npm install qulee --save
-```
+JavaScript library implementation of a queue with extra power
 
 # Usage
 
@@ -22,6 +8,20 @@ Using qulee is very simple. Just add the script tag with the relevant reference 
 Or if on Node just require the module as shown in the [examples](#Examples)  
 
 I first found it useful to implement a situation where I wanted http calls (promises) to get executed in a synchronized fashion.  
+
+# Installation 
+
+Using CDN:
+
+```
+<script src="https://unpkg.com/qulee/dist/qulee.min.js"></script>
+```
+
+Using NPM:
+
+```
+npm install qulee --save
+```     
 
 # Api
 

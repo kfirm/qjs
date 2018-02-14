@@ -15,6 +15,18 @@
 
 <script>
     qulee.enqueue('Hello');
+    qulee.enqueue('World');
+    qulee.enqueue('!');
+
+    qulee.createNamedQueue('Objects');
+
+    qulee['Objects'].enqueue({ value: 'test'});
+    qulee['Objects'].enqueue({ value: 'test2'});
+    qulee['Objects'].enqueue({ value: 'test3'});
+
+    console.log(qulee['Objects'].dequeue().next());
+
+
     qulee.createNamedQueue('FirstQueue');
 
     qulee['FirstQueue'].enqueue('Bye');

@@ -1,6 +1,6 @@
 {
   "name": "qulee",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "JavaScript library implementation of a Queue - with extra power",
   "main": "src/qulee.min.js",
   "scripts": {
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/kfirm/qulee/issues"
   },
-  "homepage": "https://github.com/kfirm/qulee"
+  "homepage": "https://github.com/kfirm/qulee",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  }
 }
